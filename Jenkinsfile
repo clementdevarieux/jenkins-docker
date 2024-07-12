@@ -7,7 +7,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t clementdevarieux/flask:$BUILD_NUMBER .'
+                sh 'docker build -t clementdevarieux/jenkins-docker:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push clementdevarieux/flask:$BUILD_NUMBER'
+                sh 'docker push clementdevarieux/jenkins-docker:$BUILD_NUMBER'
             }
         }
 }
